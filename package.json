@@ -24,7 +24,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mongoose": "^6.2.0",
-    "react-datepicker": "^4.6.0"
+    "react-datepicker": "^4.6.0",
+    "react-select": "^5.2.2",
+    "select": "^1.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
