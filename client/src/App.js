@@ -7,7 +7,7 @@ import SignUp from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Events from './components/Events';
 import Settings from './components/Settings';
-//import CreateEvent from './components/CreateEvent';
+import CreateEvent from './components/CreateEvent';
 
 /* 
 TODO:
@@ -36,7 +36,7 @@ function App() {
   }
 
 
-  //We can replace loginStatus with checkign if accountData.username is Null. Still here for testing until databae is done.
+  //We can replace loginStatus with checkign if accountData.username is Null. Still here for testing until database is done.
   return (
     <>
     <Navbar></Navbar>
@@ -46,8 +46,8 @@ function App() {
       <Route path="/signup" element = {<SignUp logOn={logOn} loginStatus = {loginStatus}/>}></Route>
       <Route path="/events" element = {<Events loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
       <Route path="/settings" element = {<Settings loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
+      <Route path="/create" element = {<CreateEvent loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
       <Route path="/events" element = {<Events/>}></Route>
-
     </Routes>
     </>
   );
@@ -55,4 +55,3 @@ function App() {
 
 export default App;
 
-//      <Route path="/create" element = {<CreateEvent loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
