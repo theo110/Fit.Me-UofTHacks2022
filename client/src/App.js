@@ -30,11 +30,9 @@ function App() {
   //Accounts data object from database
   const [accountData, setAccountData] = useState(null)
 
-  function logOn(user) {
+  function logOn(data) {
     toggleLoginStatus(true);
-    //Get data from database depending on user?
-    const data = "someData"
-    setAccountData(data)
+    setAccountData(data);
   }
 
 
