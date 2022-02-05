@@ -16,23 +16,31 @@ function Search(props) {
     }
 
     function onSubmit(e) {
-        //Gets all events from db
         let allEvents = matchingEvents;
         let filteredEvents = []
-        console.log(filters)
-        filters.forEach(filter => {
-            //Do something with each filter
-            //look at .filter function
-            allEvents.forEach(event => {
-                if (filter === event.type) {
-                    filteredEvents.push(event);
-                }
-            })
-        })
-        setMatchingEvents(filteredEvents);
-        filteredEvents.forEach(element => console.log(element));
 
-        //Make filterevent only contain results that contain the searched field {search} if it's in events.description or events.title
+        if (filters.length !== 0) {
+            filters.forEach(filter => {
+                allEvents.forEach(event => {
+                    if (filter === event.type) {
+                        filteredEvents.push(event);
+                    }
+                })
+            })
+            allEvents = filteredEvents;
+            filteredEvents = [];
+        }
+
+
+        allEvents.forEach(event => {
+            if (event.name.search(search) !== -1 || event.type.search(search) !== -1 || event.description.search(search) !== -1) {
+                filteredEvents.push(event);
+            }
+        })
+
+        //This is console loggin filtered elements. instead we wanna display them.
+        filteredEvents.forEach(element => console.log(element));
+        e.preventDefault();
     }
 
     function addFilters(e) {
