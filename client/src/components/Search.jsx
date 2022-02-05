@@ -38,17 +38,7 @@ function Search(props) {
             //Do something with each filter
             //look at .filter function
             allEvents.forEach(event => {
-                if (filter === event.description) {
-                    filteredEvents.append(event);
-                }
-            })
-            allEvents.forEach(event => {
-                if (filter === event.title) {
-                    filteredEvents.append(event);
-                }
-            })
-            allEvents.forEach(event => {
-                if (filter === event.type) {
+                if (filter === event.description || filter === event.type || filter === event.title) {
                     filteredEvents.append(event);
                 }
             })
