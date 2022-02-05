@@ -72,6 +72,16 @@ router.get('/api/eventData/:id', (req, res) => {
         })
 });
 
+// routes for editing data (PUT)
+router.put('/api/updateLocation/:username', (req, res) => {
+    const username = req.params.username;
+    console.log(req.body);
+    // usernames are unique, so we can query by username
+    Account.updateOne({name: username}, {$set: {info: req.body}})
+        .then((result) => console.log(`${username} location updated`))
+        .catch((err) => console.error(err))
+})
+
 // routes for deleting data (DELETE)
 router.delete('/api/purgeEvents', (req, res) => {
     Event.deleteMany({}, (err) => {
