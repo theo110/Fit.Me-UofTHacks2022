@@ -7,7 +7,7 @@ import SignUp from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Events from './components/Events';
 import Settings from './components/Settings';
-import CreateEvent from './components/CreateEvent';
+//import CreateEvent from './components/CreateEvent';
 
 /* 
 TODO:
