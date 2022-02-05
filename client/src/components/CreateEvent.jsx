@@ -54,7 +54,7 @@ function CreateEvent(props){
                 <input type="text" name="description" onChange={changeDescription}></input>
                 <label>Select Time</label>
                 <input type="text" name="time" onChange={changeTime}></input>
-                <label>Author: IDK What this is</label>
+                <label>Author</label>
                 <input type="text" name="author" onChange={changeAuthor}></input>
                 <input type="submit" value="Submit"></input>
             </form>

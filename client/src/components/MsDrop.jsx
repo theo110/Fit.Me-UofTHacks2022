@@ -33,6 +33,14 @@ const sports = [
     {
         value: 8, 
         label: "Skiing"
+    }, 
+    {
+        value: 9, 
+        label: "Tennis"
+    }, 
+    {
+        value: 10,
+        label: "Cycling"
     }
 ]
 
