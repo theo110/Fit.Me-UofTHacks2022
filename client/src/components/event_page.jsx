@@ -11,23 +11,17 @@ function Form(props){
     const [time, setTime] = useState("");
     const [author, setAuthor] = useState("");
 
-
-    //True is logged in false is not
-    const [loginStatus,toggleLoginStatus] = useState(props.loginStatus);
-    const [error,setError] = useState(false);
-
-
     function changeName(e){
-        setUsername(e.target.value)
+        setName(e.target.value)
     }
     function changeLocation(e){
-        setPassword(e.target.value)
+        setLocation(e.target.value)
     }
     function changeActivityLevel(e){
-        setActivityLevel(e)
+        setActivityLevel(e.target.value)
     }
     function changeDescription(e){
-        setDescription(e)
+        setDescription(e.target.value)
     }
 
     export default function StaticTimePickerLandscape() {
@@ -47,9 +41,9 @@ function Form(props){
             />
           </LocalizationProvider>
         );
-      }
+    }
     function changeAuthor(e){
-        setAuthor(e)
+        setAuthor(e.target.value)
     }
 
     function onSubmit(e){
@@ -75,7 +69,7 @@ function Form(props){
                 <label>Enter details to narrow down search</label>
                 <input type="text" name="description" onChange={changeDescription}></input>
                 <label>Select time</label>
-                <input type="text" name="time" onChange={setTime}></input>
+                <input type="text" name="time" onChange={StaticTimePickerLandscape}></input>
                 <label>Author: IDK What this is</label>
                 <input type="text" name="author" onChange={changeAuthor}></input>
                 <input type="submit" value="Submit"></input>
