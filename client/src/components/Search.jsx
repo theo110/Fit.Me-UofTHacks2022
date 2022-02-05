@@ -6,7 +6,7 @@ function Search(props) {
     const [location] = useState(props.location);
     const [preferences] = useState(props.preferences);
     const [search, setSearch] = useState("");
-    const [filters, setFilters] = useState("");
+    const [filters, setFilters] = useState([]);
 
     function changeSearch(e) {
         setSearch(e.target.value)
@@ -14,11 +14,15 @@ function Search(props) {
 
     function onSubmit(e) {
         //Search depending on database fetch.
-        console.log("submit")
+        console.log(filters)
+        let ok = filters.map(filter => {
+            //Do something with each filter
+        })
     }
 
     function addFilters(e) {
-        setFilters(Array.isArray(e)?e.map(target => target.value):[]);
+        console.log("ran")
+        setFilters(Array.isArray(e)?e.map(target => target.label):[]);
     }
 
     //Should have search bar options to filter based on preferences and location Search logic should be implemented here.
@@ -30,6 +34,7 @@ function Search(props) {
             <form onSubmit={onSubmit}>
                 <label>Search: </label>
                 <input type="text" name="search" onChange={changeSearch}></input>
+                <label>Filter by Sport: </label>
                 <MsDrop addFilters={addFilters}></MsDrop>
                 <input type="submit" value="Submit"></input>
             </form>

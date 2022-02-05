@@ -19,7 +19,7 @@ function MsDrop(props){
             css our own thing 
         */
         <div>
-            <Select options={sports} isMulti onchange = {props.addFilters}></Select>
+            <Select options={sports} isMulti onChange = {props.addFilters}></Select>
         </div>
     )
 }

@@ -10,7 +10,6 @@ import Settings from './components/Settings';
 import CreateEvent from './components/CreateEvent';
 
 /* 
-
 TODO:
   CSS Everything
   Basic structure -> Done
