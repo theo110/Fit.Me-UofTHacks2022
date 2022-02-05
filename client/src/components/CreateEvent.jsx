@@ -1,40 +1,66 @@
-import React, {useState, useEffect,} from 'react'
+import React, { useState, useEffect, } from 'react'
+import SDrop from './SDrop';
 
-function CreateEvent(props){
+function CreateEvent(props) {
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [activityLevel, setActivityLevel] = useState("");
+    const [type, setType] = useState("");
     const [description, setDescription] = useState("");
+    const [capacity, setCapacity] = useState(0);
     const [time, setTime] = useState("");
 
-    //In the future take from props.
-    const [author, setAuthor] = useState("");
-
-    function changeName(e){
+    function changeName(e) {
         setName(e.target.value)
     }
-    function changeLocation(e){
+    function changeLocation(e) {
         setLocation(e.target.value)
     }
-    function changeActivityLevel(e){
+    function changeActivityLevel(e) {
         setActivityLevel(e.target.value)
     }
     function changeTime(e) {
         setTime(e.target.value)
     }
-    function changeDescription(e){
+    function changeDescription(e) {
         setDescription(e.target.value)
     }
-    function changeAuthor(e){
-        setAuthor(e.target.value)
+
+    function addType(e) {
+        setType(e.label)
     }
-    function onSubmit(e){
-        console.log(name + "|" + location + "|" + activityLevel + "|" + description + "|" + time + "|" + author)
-        //Push to events database.
+
+    function onSubmit(e) {
+
+        const event = {
+            name: name,
+            location: location,
+            type: type,
+            activityLevel: activityLevel,
+            description: description,
+            capacity: 69,
+            time: time,
+            author: props.accountData.username,
+        }
+
+        const request = {
+            method: "POST",
+            body: JSON.stringify(event),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        try {
+            fetch("/api/newEvent", request).then(console.log(event))
+        } catch (e) {
+            console.log(e)
+        }
+
         e.preventDefault();
     }
 
-    return(
+    return (
         <>
             <h1>Enter Details</h1>
             <form onSubmit={onSubmit}>
@@ -50,12 +76,11 @@ function CreateEvent(props){
                         <option value="vigorous">Vigorous intensity</option>
                     </select>
                 </label>
-                <label>Enter details to narrow down search</label>
+                <label>Please describe a brief description</label>
                 <input type="text" name="description" onChange={changeDescription}></input>
+                <SDrop addFilters = {addType}></SDrop>
                 <label>Select Time</label>
                 <input type="text" name="time" onChange={changeTime}></input>
-                <label>Author</label>
-                <input type="text" name="author" onChange={changeAuthor}></input>
                 <input type="submit" value="Submit"></input>
             </form>
         </>
