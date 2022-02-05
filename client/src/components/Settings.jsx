@@ -1,14 +1,16 @@
 import React, {useState, useEffect,} from 'react'
+import {useNavigate} from "react-router-dom"
 
 function Settings(props){
     const [accountData, setAccountData] = useState(props.accountData);
     const [loginStatus] = useState(props.loginStatus);
     const [userLocation, setUserLocation] = useState(accountData? accountData.location : '');
+    const navigate = useNavigate();
 
     useEffect(()=>{
         if(!accountData){
             alert("Please log in first");
-            //Redirect to login
+            navigate("/login")
         }
     });
 

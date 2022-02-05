@@ -1,5 +1,7 @@
 import React, { useState, useEffect, } from 'react'
 import SDrop from './SDrop';
+import {useNavigate} from "react-router-dom"
+
 
 function CreateEvent(props) {
     const [name, setName] = useState("");
@@ -9,6 +11,8 @@ function CreateEvent(props) {
     const [description, setDescription] = useState("");
     const [capacity, setCapacity] = useState(0);
     const [time, setTime] = useState("");
+
+    const navigate = useNavigate()
 
     function changeName(e) {
         setName(e.target.value)
@@ -59,6 +63,13 @@ function CreateEvent(props) {
 
         e.preventDefault();
     }
+
+    useEffect(()=>{
+        if(!props.accountData){
+            alert("Please log in first");
+            navigate("/login")
+        }
+    });
 
     return (
         <>

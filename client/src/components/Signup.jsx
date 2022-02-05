@@ -1,4 +1,5 @@
 import React, { useState, useEffect, } from 'react'
+import {useNavigate} from "react-router-dom"
 
 
 
@@ -8,8 +9,9 @@ function SignUp(props) {
     const [email, setEmail] = useState("");
 
     //True is logged in false is not
-    const [loginStatus, toggleLoginStatus] = useState(props.loginStatus);
     const [currAccounts, setCurrAccounts] = useState(null);
+
+    const navigate = useNavigate()
 
     function changeUser(e) {
         setUsername(e.target.value)
@@ -22,30 +24,6 @@ function SignUp(props) {
     function changePassword(e) {
         setPassword(e.target.value)
     }
-
-    /*
-    const Account = new mongoose.model('Account', new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    info: {
-        location: {
-            type: String,
-            required: true
-        },
-        preferences: []
-    }
-    }));
-    */
 
     function onSubmit(e) {
         //Store in database
@@ -86,9 +64,9 @@ function SignUp(props) {
 
     //Fetch accounts data
     useEffect(() => {
-        if (loginStatus) {
+        if (props.accountData) {
             alert("already logged in");
-            //Redirect
+            navigate("/");
         }
         async function fetchAccountData() {
 

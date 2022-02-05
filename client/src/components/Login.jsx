@@ -1,14 +1,14 @@
 import React, { useState, useEffect, } from 'react'
+import {useNavigate} from "react-router-dom"
 
 
 
 function Login(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    //True is logged in false is not
-    const [loginStatus, toggleLoginStatus] = useState(props.loginStatus);
     const [error, setError] = useState(false);
 
+    const navigate = useNavigate();
 
     function changeUser(e) {
         setUsername(e.target.value)
@@ -65,8 +65,7 @@ function Login(props) {
 
             if (currUser !== null) {
                 props.logOn(currUser);
-                alert('login');
-                //navigate
+                navigate("/settings")
             } else {
                 setError(true);
             }
@@ -75,11 +74,11 @@ function Login(props) {
     }
 
     useEffect(() => {
-        if (loginStatus) {
+        if (props.accountData) {
             alert("already logged in");
-            //Redirect
+            navigate("/")
         }
-    });
+    },[]);
 
     return (
         <>
