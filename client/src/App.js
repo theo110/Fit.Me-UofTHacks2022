@@ -1,24 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useState, useEffect } from 'react';
+import {Routes, Route} from 'react-router-dom'
+import Home from "./components/Home";
+import Login from "./components/Login";
+import SignUp from "./components/Signup";
+import Navbar from "./components/Navbar";
+import Events from './components/Events';
+import Settings from './components/Settings';
+
+/* 
+
+TODO:
+  CSS Everything
+  Basic structure -> Done
+  Database
+  Conditional Redirect...
+  Map
+  Searching logic
+  Filter logic
+  Ability to set preferences locations in a good way
+  Make everything look nice
+  Optimization
+*/
+
 
 function App() {
+  const [loginStatus, toggleLoginStatus] = useState(false)
+
+  //Accounts data object from database
+  const [accountData, setAccountData] = useState(null)
+
+  function logOn(user) {
+    toggleLoginStatus(true);
+    //Get data from database depending on user?
+    const data = "someData"
+    setAccountData(data)
+  }
+
+
+  //We can replace loginStatus with checkign if accountData.username is Null. Still here for testing until databae is done.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navbar></Navbar>
+    <Routes>
+      <Route exact path="/" element = {<Home />}></Route>
+      <Route path="/login" element = {<Login logOn={logOn} loginStatus = {loginStatus}/>}></Route>
+      <Route path="/signup" element = {<SignUp logOn={logOn} loginStatus = {loginStatus}/>}></Route>
+      <Route path="/events" element = {<Events loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
+      <Route path="/settings" element = {<Settings loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
+
+    </Routes>
+    </>
   );
 }
 
