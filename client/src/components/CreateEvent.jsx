@@ -79,7 +79,7 @@ function CreateEvent(props){
                 <input type="text" name="location" onChange={changeLocation}></input>
                 <label>Activitiy Level
                     <select onChange={changeActivityLevel}>
-                        <option value="">Please select</option>
+                        <option value=""> Please Select</option>
                         <option value="light">Light intensity</option>
                         <option value="moderate">Moderate intensity</option>
                         <option value="vigorous">Vigorous intensity</option>

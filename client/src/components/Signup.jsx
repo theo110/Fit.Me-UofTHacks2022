@@ -61,10 +61,12 @@ function SignUp(props){
             password: password,
             email: email,
         }
+        
         const request = {
             method: "POST",
             body: JSON.stringify(account)
         };
+        
         try{
             fetch("http://localhost:5000/api/newUser",request).then(console.log("zucc"))
         } catch(e){
