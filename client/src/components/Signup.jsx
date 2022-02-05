@@ -49,9 +49,10 @@ function SignUp(props) {
 
     function onSubmit(e) {
         //Store in database
-        for (let account in currAccounts) {
-            if (account.username === username) {
+        for (let i = 0; i < currAccounts.length; i++) {
+            if (currAccounts[i].username === username) {
                 alert("username taken")
+                break;
                 //Handle username taken.
             }
         }
@@ -101,10 +102,10 @@ function SignUp(props) {
         }
         fetchAccountData().then(accounts => {
             setCurrAccounts(accounts);
+            console.log("firstuers")
+            console.log(accounts[0].username);
         })
-    }, []);
-
-    //bracket supposed to make it only run once.
+    },[]);
 
     return (
         <>
