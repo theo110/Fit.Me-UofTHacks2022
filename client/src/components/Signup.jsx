@@ -1,25 +1,25 @@
-import React, {useState, useEffect,} from 'react'
+import React, { useState, useEffect, } from 'react'
 
 
 
-function SignUp(props){
-    const [username,setUsername] = useState("");
-    const [password,setPassword] = useState("");
-    const [email,setEmail] = useState("");
+function SignUp(props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
     //True is logged in false is not
-    const [loginStatus,toggleLoginStatus] = useState(props.loginStatus);
+    const [loginStatus, toggleLoginStatus] = useState(props.loginStatus);
     const [currAccounts, setCurrAccounts] = useState(null);
 
-    function changeUser(e){
+    function changeUser(e) {
         setUsername(e.target.value)
     }
 
-    function changeEmail(e){
+    function changeEmail(e) {
         setEmail(e.target.value)
     }
 
-    function changePassword(e){
+    function changePassword(e) {
         setPassword(e.target.value)
     }
 
@@ -47,11 +47,12 @@ function SignUp(props){
     }));
     */
 
-    function onSubmit(e){
+    function onSubmit(e) {
         //Store in database
-        for (let account in currAccounts){
-            if (account.username === username){
+        for (let i = 0; i < currAccounts.length; i++) {
+            if (currAccounts[i].username === username) {
                 alert("username taken")
+                break;
                 //Handle username taken.
             }
         }
@@ -79,33 +80,35 @@ function SignUp(props){
         } catch(e){
             console.log(e)
         }
+
         e.preventDefault();
     }
 
     //Fetch accounts data
-    useEffect(()=>{
-        if(loginStatus){
+    useEffect(() => {
+        if (loginStatus) {
             alert("already logged in");
             //Redirect
         }
         async function fetchAccountData() {
+
             try{
                 const accounts = await fetch("/api/userData");
                 const accountData = await accounts.json();
                 console.log(accountData)
                 return accountData
-            } catch(e){
+            } catch (e) {
                 console.log(e)
             }
         }
         fetchAccountData().then(accounts => {
             setCurrAccounts(accounts);
+            console.log("firstuers")
+            console.log(accounts[0].username);
         })
-    }, []);
+    },[]);
 
-    //bracket supposed to make it only run once.
-
-    return(
+    return (
         <>
             <h1>Sign Up Here</h1>
             <form onSubmit={onSubmit}>
