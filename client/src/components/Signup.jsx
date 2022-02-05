@@ -1,25 +1,25 @@
-import React, {useState, useEffect,} from 'react'
+import React, { useState, useEffect, } from 'react'
 
 
 
-function SignUp(props){
-    const [username,setUsername] = useState("");
-    const [password,setPassword] = useState("");
-    const [email,setEmail] = useState("");
+function SignUp(props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
     //True is logged in false is not
-    const [loginStatus,toggleLoginStatus] = useState(props.loginStatus);
+    const [loginStatus, toggleLoginStatus] = useState(props.loginStatus);
     const [currAccounts, setCurrAccounts] = useState(null);
 
-    function changeUser(e){
+    function changeUser(e) {
         setUsername(e.target.value)
     }
 
-    function changeEmail(e){
+    function changeEmail(e) {
         setEmail(e.target.value)
     }
 
-    function changePassword(e){
+    function changePassword(e) {
         setPassword(e.target.value)
     }
 
@@ -47,47 +47,51 @@ function SignUp(props){
     }));
     */
 
-    function onSubmit(e){
+    function onSubmit(e) {
         //Store in database
-        for (let account in currAccounts){
-            if (account.username === username){
+        for (let account in currAccounts) {
+            if (account.username === username) {
                 alert("username taken")
                 //Handle username taken.
             }
         }
-
-        const account = {
-            username: username,
-            password: password,
-            email: email,
-        }
-        
-        const request = {
-            method: "POST",
-            body: JSON.stringify(account)
-        };
-        
-        try{
-            fetch("http://localhost:5000/api/newUser",request).then(console.log("zucc"))
-        } catch(e){
+        console.log(username)
+        try {
+            fetch("http://localhost:5000/api/newUser", {
+                method: "POST",
+                body: JSON.stringify({
+                    "username": username,
+                    "password": password,
+                    "email": email,
+                    into: {
+                        location: "Waterloo",
+                        preferences: ["basketball"]
+                    }
+                }),
+                heading: {
+                    "Content-type": "application/json"
+                }
+            }).then()
+        } catch (e) {
             console.log(e)
         }
+
         e.preventDefault();
     }
 
     //Fetch accounts data
-    useEffect(()=>{
-        if(loginStatus){
+    useEffect(() => {
+        if (loginStatus) {
             alert("already logged in");
             //Redirect
         }
         async function fetchAccountData() {
-            try{
+            try {
                 const accounts = await fetch("http://localhost:5000/api/userData");
                 const accountData = await accounts.json();
                 console.log(accountData)
                 return accountData
-            } catch(e){
+            } catch (e) {
                 console.log(e)
             }
         }
@@ -98,7 +102,7 @@ function SignUp(props){
 
     //bracket supposed to make it only run once.
 
-    return(
+    return (
         <>
             <h1>Sign Up Here</h1>
             <form onSubmit={onSubmit}>

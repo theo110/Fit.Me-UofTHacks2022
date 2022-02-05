@@ -53,6 +53,7 @@ function Login(props) {
                 console.log(e)
             }
         }
+        
         fetchAccountData().then(accounts => {
             let currUser = null;
             for (let account of accounts) {
@@ -61,9 +62,10 @@ function Login(props) {
                     break;
                 }
             }
-            console.log(username + "|" + password)
+
             if (currUser !== null) {
-                props.logOn(currUser)
+                props.logOn(currUser);
+                alert('login');
                 //navigate
             } else {
                 setError(true);
