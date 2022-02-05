@@ -76,7 +76,7 @@ function SignUp(props) {
         };
         
         try{
-            fetch("/api/newUser",request).then(console.log("zucc"))
+            fetch("/api/newUser",request).then()
         } catch(e){
             console.log(e)
         }
@@ -103,8 +103,6 @@ function SignUp(props) {
         }
         fetchAccountData().then(accounts => {
             setCurrAccounts(accounts);
-            console.log("firstuers")
-            console.log(accounts[0].username);
         })
     },[]);
 

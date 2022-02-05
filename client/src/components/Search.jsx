@@ -17,10 +17,33 @@ function Search(props) {
 
     function onSubmit(e) {
         //Gets all events from db
-        let allEvents = [];
+        let allEvents = matchingEvents;
+        let filteredEvents = []
+        console.log(filters)
+        filters.forEach(filter => {
+            //Do something with each filter
+            //look at .filter function
+            allEvents.forEach(event => {
+                if (filter === event.type) {
+                    filteredEvents.push(event);
+                }
+            })
+        })
+        setMatchingEvents(filteredEvents);
+        filteredEvents.forEach(element => console.log(element));
+
+        //Make filterevent only contain results that contain the searched field {search} if it's in events.description or events.title
+    }
+
+    function addFilters(e) {
+        setFilters(Array.isArray(e) ? e.map(target => target.label) : []);
+    }
+
+    //Fetch accounts data
+    useEffect(() => {
         async function fetchEventData() {
             try {
-                const events = await fetch("http://localhost:5000/api/eventData");
+                const events = await fetch("/api/eventData");
                 const eventData = await events.json();
                 console.log(eventData)
                 return eventData
@@ -29,30 +52,9 @@ function Search(props) {
             }
         }
         fetchEventData().then(events => {
-            allEvents = events;
+            setMatchingEvents(events);
         })
-        
-        let filteredEvents = []
-        console.log(filters)
-        filters.forEach(filter => {
-            //Do something with each filter
-            //look at .filter function
-            allEvents.forEach(event => {
-                if (filter === event.type) {
-                    filteredEvents.append(event);
-                }
-            })
-        })
-        setMatchingEvents(filteredEvents);
-        filteredEvents.forEach(element => console.log(element));
-
-        //Do string search later.
-    }
-
-    function addFilters(e) {
-        console.log("ran")
-        setFilters(Array.isArray(e) ? e.map(target => target.label) : []);
-    }
+    }, []);
 
     //Should have search bar options to filter based on preferences and location Search logic should be implemented here.
     //Will do when database done.
