@@ -1,36 +1,41 @@
 import React, {useState, useEffect,} from 'react'
+/*
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticTimePicker from '@mui/lab/StaticTimePicker';
+*/
 
-function Form(props){
+function CreateEvent(props){
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [activityLevel, setActivityLevel] = useState("");
     const [description, setDescription] = useState("");
     const [time, setTime] = useState("");
+
+
+
+    //In the future take from props.
     const [author, setAuthor] = useState("");
 
 
     //True is logged in false is not
     const [loginStatus,toggleLoginStatus] = useState(props.loginStatus);
-    const [error,setError] = useState(false);
-
 
     function changeName(e){
-        setUsername(e.target.value)
+        setName(e.target.value)
     }
     function changeLocation(e){
-        setPassword(e.target.value)
+        setLocation(e.target.value)
     }
     function changeActivityLevel(e){
-        setActivityLevel(e)
+        setActivityLevel(e.target.value)
     }
     function changeDescription(e){
-        setDescription(e)
+        setDescription(e.target.value)
     }
 
-    export default function StaticTimePickerLandscape() {
+    /*
+    function StaticTimePickerLandscape() {
         const [time, setTime] = React.useState(new Date());
       
         return (
@@ -48,12 +53,19 @@ function Form(props){
           </LocalizationProvider>
         );
       }
+    */
+
+    function changeTime(e){
+        setTime(e.target.value)
+    }
+
     function changeAuthor(e){
-        setAuthor(e)
+        setAuthor(e.target.value)
     }
 
     function onSubmit(e){
         console.log(name + "|" + location + "|" + activityLevel + "|" + description + "|" + time + "|" + author)
+        //Push to events database.
         e.preventDefault();
     }
 
@@ -66,7 +78,8 @@ function Form(props){
                 <label>Location: </label>
                 <input type="text" name="location" onChange={changeLocation}></input>
                 <label>Activitiy Level
-                    <select value={this.state.value} onChange={changeActivityLevel}>
+                    <select onChange={changeActivityLevel}>
+                        <option value="">Please select</option>
                         <option value="light">Light intensity</option>
                         <option value="moderate">Moderate intensity</option>
                         <option value="vigorous">Vigorous intensity</option>
@@ -75,7 +88,7 @@ function Form(props){
                 <label>Enter details to narrow down search</label>
                 <input type="text" name="description" onChange={changeDescription}></input>
                 <label>Select time</label>
-                <input type="text" name="time" onChange={setTime}></input>
+                <input type="text" name="time" onChange={changeTime}></input>
                 <label>Author: IDK What this is</label>
                 <input type="text" name="author" onChange={changeAuthor}></input>
                 <input type="submit" value="Submit"></input>
@@ -84,4 +97,4 @@ function Form(props){
     )
 }
 
-export default Login;
+export default CreateEvent;
