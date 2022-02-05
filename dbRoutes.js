@@ -4,6 +4,8 @@ const Account = require('./models/accountModel');
 const Event = require('./models/eventModel');
 const router = express.Router();
 
+router.use(express.json());
+
 // routes for writing to database (POST)
 // route for creating a new user
 router.post('/api/newUser', (req, res) => {
@@ -69,5 +71,20 @@ router.get('/api/eventData/:id', (req, res) => {
             res.redirect('/');
         })
 });
+
+// routes for deleting data (DELETE)
+router.delete('/api/purgeEvents', (req, res) => {
+    Event.deleteMany({}, (err) => {
+        if (err) {console.log(err)}
+        console.log("Events purged")
+    })
+})
+
+router.delete('/api/purgeUsers', (req, res) => {
+    Account.deleteMany({}, (err) => {
+        if (err) {console.log(err)}
+        console.log("Accounts purged")
+    })
+})
 
 module.exports = router;

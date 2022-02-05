@@ -55,24 +55,28 @@ function SignUp(props) {
                 //Handle username taken.
             }
         }
-        console.log(username)
-        try {
-            fetch("http://localhost:5000/api/newUser", {
-                method: "POST",
-                body: JSON.stringify({
-                    "username": username,
-                    "password": password,
-                    "email": email,
-                    into: {
-                        location: "Waterloo",
-                        preferences: ["basketball"]
-                    }
-                }),
-                heading: {
-                    "Content-type": "application/json"
-                }
-            }).then()
-        } catch (e) {
+
+        const account = {
+            username: username,
+            password: password,
+            email: email,
+            info: {
+                location: '',
+                preferences: []
+            }
+        }
+        
+        const request = {
+            method: "POST",
+            body: JSON.stringify(account),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        
+        try{
+            fetch("/api/newUser",request).then(console.log("zucc"))
+        } catch(e){
             console.log(e)
         }
 
