@@ -34,6 +34,17 @@ router.get('/api/userData/:id', (req, res) => {
         })
 });
 
+router.get('/api/userData', (req, res) => {
+    Account.find()
+        .then((account) => {
+            res.json(account);
+        })
+        .catch((err) => {
+            console.err(err);
+            res.redirect('/');
+        })
+});
+
 // get data for all events
 router.get('/api/eventData', (req, res) => {
     Event.find().sort({createdAt: -1})

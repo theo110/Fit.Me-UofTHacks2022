@@ -2,6 +2,7 @@ import React, {useState, useEffect,} from 'react'
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticTimePicker from '@mui/lab/StaticTimePicker';
+import {DateRangePickerComponent} from "@syncfusion/ej2-react-calendars";
 
 function Form(props){
     const [name, setName] = useState("");
@@ -57,7 +58,7 @@ function Form(props){
             <form onSubmit={onSubmit}>
                 <label>Name of Activity: </label>
                 <input type="text" name="name" onChange={changeName}></input>
-                <label>Location: </label>
+                <label>Location</label>
                 <input type="text" name="location" onChange={changeLocation}></input>
                 <label>Activitiy Level
                     <select value={this.state.value} onChange={changeActivityLevel}>
@@ -66,12 +67,12 @@ function Form(props){
                         <option value="vigorous">Vigorous intensity</option>
                     </select>
                 </label>
-                <label>Enter details to narrow down search</label>
+                <label>Description of the Event</label>
                 <input type="text" name="description" onChange={changeDescription}></input>
-                <label>Select time</label>
+                <label>Start Date</label>
                 <input type="text" name="time" onChange={StaticTimePickerLandscape}></input>
-                <label>Author: IDK What this is</label>
-                <input type="text" name="author" onChange={changeAuthor}></input>
+                {/* <label>Author: IDK What this is</label>
+                <input type="text" name="author" onChange={changeAuthor}></input> */}
                 <input type="submit" value="Submit"></input>
             </form>
         </>
