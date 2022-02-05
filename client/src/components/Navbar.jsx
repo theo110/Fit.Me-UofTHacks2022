@@ -12,6 +12,7 @@ function Navbar(props){
             <NavLink to="/events">Events</NavLink>
             <NavLink to="/settings">Settings</NavLink>
             <NavLink to="/create">Create Event</NavLink>
+            <NavLink to="/events">Find Events</NavLink>
         </>
     )
 }

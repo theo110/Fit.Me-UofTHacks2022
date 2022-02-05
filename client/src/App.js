@@ -10,7 +10,6 @@ import Settings from './components/Settings';
 import CreateEvent from './components/CreateEvent';
 
 /* 
-
 TODO:
   CSS Everything
   Basic structure -> Done
@@ -48,6 +47,7 @@ function App() {
       <Route path="/events" element = {<Events loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
       <Route path="/settings" element = {<Settings loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
       <Route path="/create" element = {<CreateEvent loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
+      <Route path="/events" element = {<Events/>}></Route>
 
     </Routes>
     </>

@@ -17,7 +17,7 @@ const Account = new mongoose.model('Account', new mongoose.Schema({
     },
     info: {
         location: {
-            //Should this be optional?
+            //Should this be
             type: String,
             required: false
         },

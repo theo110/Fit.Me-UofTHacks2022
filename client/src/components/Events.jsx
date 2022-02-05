@@ -5,19 +5,23 @@ function Events(props){
     const [loginStatus,toggleLoginStatus] = useState(props.loginStatus);
     const [accountData, setAccountData] = useState(props.accountData);
 
+    /*
     useEffect(()=>{
         if(!loginStatus){
             alert("Please log in first");
             //Redirect to login
         }
     });
+    */
 
     return(
         <>
             <h1>Events</h1>
-            <Search location = {accountData.location} preferences = {accountData.preferences}></Search>
+            <Search></Search>
         </>
     )
 }
 
 export default Events;
+
+//<Search location = {accountData.location} preferences = {accountData.preferences}></Search>
