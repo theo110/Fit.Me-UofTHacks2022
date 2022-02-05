@@ -72,4 +72,19 @@ router.get('/api/eventData/:id', (req, res) => {
         })
 });
 
+// routes for deleting data (DELETE)
+router.delete('/api/purgeEvents', (req, res) => {
+    Event.deleteMany({}, (err) => {
+        if (err) {console.log(err)}
+        console.log("Events purged")
+    })
+})
+
+router.delete('/api/purgeUsers', (req, res) => {
+    Account.deleteMany({}, (err) => {
+        if (err) {console.log(err)}
+        console.log("Accounts purged")
+    })
+})
+
 module.exports = router;
