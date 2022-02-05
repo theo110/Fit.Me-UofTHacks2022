@@ -38,6 +38,16 @@ function Search(props) {
             //Do something with each filter
             //look at .filter function
             allEvents.forEach(event => {
+                if (filter === event.description) {
+                    filteredEvents.append(event);
+                }
+            })
+            allEvents.forEach(event => {
+                if (filter === event.title) {
+                    filteredEvents.append(event);
+                }
+            })
+            allEvents.forEach(event => {
                 if (filter === event.type) {
                     filteredEvents.append(event);
                 }
@@ -59,7 +69,7 @@ function Search(props) {
 
     return (
         <>
-            <h1>Search bar and stuff</h1>
+            <h1>Search Bar</h1>
             <form onSubmit={onSubmit}>
                 <label>Search: </label>
                 <input type="text" name="search" onChange={changeSearch}></input>

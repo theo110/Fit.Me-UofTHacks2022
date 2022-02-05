@@ -50,7 +50,7 @@ function CreateEvent(props){
                         <option value="vigorous">Vigorous intensity</option>
                     </select>
                 </label>
-                <label>Enter details to narrow down search</label>
+                <label>Enter Event Details</label>
                 <input type="text" name="description" onChange={changeDescription}></input>
                 <label>Select Time</label>
                 <input type="text" name="time" onChange={changeTime}></input>
