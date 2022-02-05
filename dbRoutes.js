@@ -4,6 +4,8 @@ const Account = require('./models/accountModel');
 const Event = require('./models/eventModel');
 const router = express.Router();
 
+router.use(express.json());
+
 // routes for writing to database (POST)
 // route for creating a new user
 router.post('/api/newUser', (req, res) => {

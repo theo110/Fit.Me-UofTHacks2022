@@ -60,15 +60,22 @@ function SignUp(props){
             username: username,
             password: password,
             email: email,
+            info: {
+                location: '',
+                preferences: []
+            }
         }
         
         const request = {
             method: "POST",
-            body: JSON.stringify(account)
+            body: JSON.stringify(account),
+            headers: {
+                "Content-Type": "application/json"
+            }
         };
         
         try{
-            fetch("http://localhost:5000/api/newUser",request).then(console.log("zucc"))
+            fetch("/api/newUser",request).then(console.log("zucc"))
         } catch(e){
             console.log(e)
         }
