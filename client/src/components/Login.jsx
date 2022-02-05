@@ -82,11 +82,6 @@ function Login(props) {
     return (
         <>
             <h1>Login Here</h1>
-
-
-
-
-
             <form onSubmit={onSubmit}>
                 <label>Username: </label>
                 <input type="text" name="username" onChange={changeUser}></input>
