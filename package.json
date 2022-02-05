@@ -4,8 +4,11 @@
   "description": "UoftHacks",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
   },
   "repository": {
     "type": "git",
@@ -18,8 +21,12 @@
   },
   "homepage": "https://github.com/theo110/UofTHacks#readme",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mongoose": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
