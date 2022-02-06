@@ -1,7 +1,6 @@
 import React, { useState, useEffect, } from 'react'
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import Alert from './Alerts';
-
 
 function Login(props) {
     const [username, setUsername] = useState("");
@@ -44,16 +43,16 @@ function Login(props) {
 
         //Fetch all users please implement it i need it please
         async function fetchAccountData() {
-            try{
+            try {
                 const accounts = await fetch("http://localhost:5000/api/userData");
                 const accountData = await accounts.json();
                 console.log(accountData)
                 return accountData
-            } catch(e){
+            } catch (e) {
                 console.log(e)
             }
         }
-        
+
         fetchAccountData().then(accounts => {
             let currUser = null;
             for (let account of accounts) {
@@ -75,20 +74,26 @@ function Login(props) {
 
     return (
         <>
-            <h1>Login Here</h1>
-            {props.accountData ?
-                <Alert onClose={(e)=>navigate("/")}>
-                    <div className='alert-message'>Already Logged In</div>
-                </Alert>
-                :
-            <form onSubmit={onSubmit}>
-                <label>Username: </label>
-                <input type="text" name="username" onChange={changeUser}></input>
-                <label>Password: </label>
-                <input type="password" name="password" onChange={changePassword}></input>
-                <input type="submit" value="Submit"></input>
-            </form>
-            }
+            <div className="login">
+                <h1>Login Here</h1>
+                {props.accountData ?
+                    <Alert onClose={(e) => navigate("/")}>
+                        <div className='alert-message'>Already Logged In</div>
+                    </Alert>
+                    :
+                    <form onSubmit={onSubmit}>
+                        <label>Username: </label>
+                        <form class="login-form" onSubmit={onSubmit}>
+                            <label className="userpass">Username: </label>
+                            <input type="text" name="username" onChange={changeUser}></input>
+                            <label className="userpass">Password: </label>
+                            <input type="password" name="password" onChange={changePassword}></input>
+                            <input type="submit" className="button" value="Submit"></input>
+                        </form>
+                    </form>
+                }
+            </div>
+
         </>
     )
 }
