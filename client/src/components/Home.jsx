@@ -1,14 +1,15 @@
 import React, { useState, useEffect, } from 'react';
 import ReactDOM from 'react-dom';
-import HomePage from "./HomePage";
+// import HomePage from "./HomePage";
 // import './Home.css' 
+import Button from '../Button'
 
 function Home(props) {
 
     return (
         <>
-            <HomePage/>
-            <h1>About Us</h1>
+            <h1 style = {{textAlign:"center"}}>Welcome</h1>
+            <Button/>
         </> 
         )
 }
