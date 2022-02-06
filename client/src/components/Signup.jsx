@@ -89,17 +89,31 @@ function SignUp(props) {
                     <div className='alert-message'>Already Logged In</div>
                 </Alert>
                 :
-                <form onSubmit={onSubmit}>
-                    <div className='form-container'>
-                        <label>Username: </label>
-                        <input type="text" name="username" onChange={changeUser}></input>
-                        <label>Email: </label>
-                        <input type="email" name="email" onChange={changeEmail}></input>
-                        <label>Password: </label>
-                        <input type="password" name="password" onChange={changePassword}></input>
-                        <input type="submit" value="Sign Up"></input>
+                <>
+                    <div className='flex-wrapper'>
+                            <form onSubmit={onSubmit}>
+                                <div className='form-container'>
+                                    <label>Username: </label>
+                                    <input type="text" name="username" onChange={changeUser}></input>
+                                    <label>Email: </label>
+                                    <input type="email" name="email" onChange={changeEmail}></input>
+                                    <label>Password: </label>
+                                    <input type="password" name="password" onChange={changePassword}></input>
+                                    <input type="submit" value="Sign Up"></input>
+                                </div>
+                            </form>
+                        <div className='logo-container'>
+                            <div className='logo'>
+                                <div className='fit'>
+                                    Fit.
+                                </div>
+                                <div className='me'>
+                                    ME
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </>
             }
         </>
     )
