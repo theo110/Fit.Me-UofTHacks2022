@@ -1,0 +1,37 @@
+$primary-color: #fff;
+$secondary-color: #74B9FF;
+$tertiary-color: #FDCB6E;
+$accent-color: #000;
+@import url('https://fonts.googleapis.com/css?family=Oxygen:regular,bold,italic&subset=latin,latin-ext');
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.logo{
+    display: flex;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 69px;
+    font-weight: bold;
+    .fit{
+        display: inline-block;
+        color: $secondary-color;
+    }
+    .me{
+        display: inline-block;
+        color: $tertiary-color;
+    }
+}
+
+.flex-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.form-wrapper{
+    
+}

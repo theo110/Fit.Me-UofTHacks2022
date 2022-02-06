@@ -1,8 +1,9 @@
 @import "./_navbar.scss";
+@import "./_search.scss";
 @import "./_alert.scss";
 @import "./_form.scss";
-@import "./_search.scss";
 @import "./_settings.scss";
+@import "./_cool.scss";
 
 
 $primary-color: #fff;
@@ -10,3 +11,7 @@ $secondary-color: #74B9FF;
 $tertiary-color: #FDCB6E;
 $accent-color: #000;
 
+html, body, #root {
+    height: 100%;
+    box-sizing: border-box;
+}

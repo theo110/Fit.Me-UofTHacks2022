@@ -48,8 +48,9 @@ function Login(props) {
 
 
     return (
-        <>
+        <div className = "loginWrapper">
             <div className="login">
+                <h1>Log in</h1>
                 <h1 style={{ textAlign: "center" }}>Login Here</h1>
                 {props.accountData ?
                     <Alert onClose={(e) => navigate("/")}>
@@ -68,7 +69,7 @@ function Login(props) {
                 }
             </div>
 
-        </>
+        </div>
     )
 }
 
