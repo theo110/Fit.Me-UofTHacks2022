@@ -55,7 +55,6 @@ function Search(props) {
             try {
                 const events = await fetch("/api/eventData");
                 const eventData = await events.json();
-                console.log(eventData)
                 return eventData
             } catch (e) {
                 console.log(e)
@@ -72,11 +71,11 @@ function Search(props) {
     return (
         <>
             <h1>Search bar and stuff</h1>
-            <form onSubmit={onSubmit}>
-                <label>Search: </label>
-                <input type="text" name="search" onChange={changeSearch}></input>
-                <label>Filter by Sport: </label>
-                <MsDrop addFilters={addFilters}></MsDrop>
+            <form onSubmit={onSubmit} className = "searchForm">
+                <label className = 'searchLabel'>Search: </label>
+                <input type="text" name="search" onChange={changeSearch} className = "searchInput"></input>
+                <label className = 'searchLabel'>Filter by Sport: </label>
+                <MsDrop addFilters={addFilters} className = "searchInput"></MsDrop>
                 <input type="submit" value="Submit"></input>
             </form>
             <ul>
