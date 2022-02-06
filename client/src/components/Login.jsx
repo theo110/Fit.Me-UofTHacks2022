@@ -1,7 +1,5 @@
 import React, { useState, useEffect, } from 'react'
-import {useNavigate} from "react-router-dom"
-
-
+import {useNavigate} from "react-router-dom";
 
 function Login(props) {
     const [username, setUsername] = useState("");
@@ -82,6 +80,7 @@ function Login(props) {
 
     return (
         <>
+        <div className="login">
             <h1>Login Here</h1>
             <form onSubmit={onSubmit}>
                 <label>Username: </label>
@@ -90,6 +89,8 @@ function Login(props) {
                 <input type="password" name="password" onChange={changePassword}></input>
                 <input type="submit" value="Submit"></input>
             </form>
+        </div>
+
         </>
     )
 }
