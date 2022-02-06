@@ -6,6 +6,9 @@
         "_navbar.scss",
         "_alert.scss",
         "_form.scss"
+
+        "_search.scss"
+
     ],
     "names": [],
     "file": "main.css"

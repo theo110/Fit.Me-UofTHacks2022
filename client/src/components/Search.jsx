@@ -90,6 +90,7 @@ function Search(props) {
                     })
                 }
             </ul>
+            <p>Didn't find the event you were looking for? Try a different query or make your own event!</p>
         </div>
     )
 }
