@@ -28,6 +28,7 @@ function HomePage() {
             one step closer to maintaining a health lifestyle.</p>
 
         </div>
+        </div>
         </>
     );
 }
