@@ -12,7 +12,7 @@ ReactDOM.render(
   
     <App />
     
-    <HomePage/>
+    
     
   </BrowserRouter>,
   document.getElementById('root')

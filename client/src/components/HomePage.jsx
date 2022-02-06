@@ -1,9 +1,10 @@
 import React from 'react';
 
 function HomePage() {
-    return(
+    return (
         <>
-        <h1>About Us</h1>;
+            <h1>About Us</h1>
+
         </>
     )
 }
