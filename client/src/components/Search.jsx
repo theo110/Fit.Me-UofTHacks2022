@@ -70,18 +70,18 @@ function Search(props) {
 
     return (
         <div className = "searchContainer">
-            <h1>Search bar and stuff</h1>
+            <h1>Search for Events</h1>
             <form onSubmit={onSubmit} className = "searchForm">
                 <label className = 'searchLabel'>Search: </label>
                 <input type="text" name="search" onChange={changeSearch} className = "searchInput"></input>
                 <label className = 'searchLabel'>Filter by Sport: </label>
                 <MsDrop addFilters={addFilters} className = "searchInput"></MsDrop>
-                <input type="submit" value="Submit"></input>
+                <input type="submit" value="Submit" className = "searchInput button"></input>
             </form>
-            <ul>
+            <ul className = "searchList">
                 {
                     displayEvents.map((event) => {
-                        return <li key = {event._id}>
+                        return <li key = {event._id} className = "searchItem" data-aos = "fade-left">
                             <h3>{event.name} - {event.type}, {event.activityLevel}</h3>
                             <h4>Location: {event.location}</h4>
                             <h4>Time: {event.time}</h4>
