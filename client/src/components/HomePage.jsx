@@ -5,9 +5,8 @@ function HomePage() {
         <>
 
         <div>
-        <h1 class="searchInput" style={{ textAlign: "center" }}>About Us</h1>;
+        <h1 class="searchInput" style={{ textAlign: "center" }}>About Us</h1>
 
-        <div class="aboutus">
 
         <p>During this long pandemic period, our lifestyles have met 
             massive disruptions. Fitness centers, sports programs, and 
@@ -27,7 +26,6 @@ function HomePage() {
             specify your preferences, find an activity, and become 
             one step closer to maintaining a health lifestyle.</p>
 
-        </div>
         </div>
         </>
     );

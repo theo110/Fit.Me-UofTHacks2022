@@ -47,6 +47,33 @@ $accent-color: #000;
     justify-content: center;
 }
 
+.all-wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-wrapper{
+    flex:40%;
+    margin-left: 1%;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 180px;
+    font-weight: bold;
+    .fit{
+        display: inline-block;
+        color: $secondary-color;
+    }
+    .me{
+        display: inline-block;
+        color: $tertiary-color;
+    }
+}
+
+.about-wrapper{
+    margin-right: 1%;
+    flex: 55%;
+}
+
 .eventInput {
     display: flex;
     flex-direction: column;
