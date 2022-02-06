@@ -86,3 +86,10 @@ $accent-color: #000;
         justify-content: center;
     }
 }
+
+.createEvent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; gap: 16px;
+}

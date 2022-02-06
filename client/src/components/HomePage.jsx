@@ -10,7 +10,7 @@ function HomePage() {
 
         <p>During this long pandemic period, our lifestyles have met 
             massive disruptions. Fitness centers, sports programs, and 
-            many physical activities were shut down. Were were forced 
+            many physical activities were shut down. We were forced 
             to stay at home. With limited physical activities, our 
             mental and physical health were greatly impacted by this 
             change. Heath problems such as obesity, depression, and 

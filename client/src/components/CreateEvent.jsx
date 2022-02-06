@@ -61,6 +61,8 @@ function CreateEvent(props) {
         } catch (e) {
             console.log(e)
         }
+        navigate('/')
+
 
         e.preventDefault();
     }
@@ -74,7 +76,7 @@ function CreateEvent(props) {
                     <div className='alert-message'>Please Log In</div>
                 </Alert>
                 :
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} className = "createEvent">
                     <label>Name of Activity: </label>
                     <input type="text" name="name" onChange={changeName}></input>
                     <label>Location: </label>
@@ -89,7 +91,8 @@ function CreateEvent(props) {
                     </label>
                     <label>Please describe a brief description</label>
                     <input type="text" name="description" onChange={changeDescription}></input>
-                    <SDrop addFilters={addType}></SDrop>
+                    <label>Activity Type</label>
+                    <SDrop addFilters={addType} name = "activitySelect"></SDrop>
                     <label>Select Time</label>
                     <input type="text" name="time" onChange={changeTime}></input>
                     <input type="submit" value="Submit"></input>
