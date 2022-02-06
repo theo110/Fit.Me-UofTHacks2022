@@ -10,6 +10,7 @@ function Home(props) {
 
     return (
         <>
+            <h1 style={{textAlign: "center"}}>Fit.Me</h1>
             <h1 class="searchInput" style={{ textAlign: "center" }}>Welcome</h1>
 
             <img src={logo} alt="Logo" height="650px" width="100%" />;
@@ -18,8 +19,6 @@ function Home(props) {
 
             <Button />
         </>
-
-
     )
 }
 

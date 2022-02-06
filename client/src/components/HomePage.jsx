@@ -3,6 +3,8 @@ import React from 'react';
 function HomePage() {
     return(
         <>
+
+        <div>
         <h1 class="searchInput" style={{ textAlign: "center" }}>About Us</h1>;
 
         <div class="aboutus">
