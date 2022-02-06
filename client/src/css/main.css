@@ -225,12 +225,24 @@ label {
   color: #FDCB6E;
 }
 
-<<<<<<< HEAD
-html, body, #root {
-  height: 100%;
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-=======
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -257,6 +269,11 @@ html, body, #root {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
->>>>>>> 04105dd7fa8231b0b7fd2519c46e008b8b989e71
+}
+
+html, body, #root {
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 /*# sourceMappingURL=main.css.map */

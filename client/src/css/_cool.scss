@@ -4,6 +4,14 @@ $tertiary-color: #FDCB6E;
 $accent-color: #000;
 @import url('https://fonts.googleapis.com/css?family=Oxygen:regular,bold,italic&subset=latin,latin-ext');
 
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
 .logo{
     display: flex;
     font-family: 'Oxygen', sans-serif;
