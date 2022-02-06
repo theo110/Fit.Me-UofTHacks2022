@@ -8,6 +8,7 @@ function Search(props) {
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState([]);
     const [matchingEvents, setMatchingEvents] = useState([])
+    const [displayEvents, setDisplayEvents] = useState([]);
 
 
     function changeSearch(e) {
@@ -38,8 +39,9 @@ function Search(props) {
             }
         })
 
-        //This is console loggin filtered elements. instead we wanna display them.
-        filteredEvents.forEach(element => console.log(element));
+        // reset search bar then display
+        setDisplayEvents([]);
+        setDisplayEvents([...filteredEvents]);
         e.preventDefault();
     }
 
@@ -77,6 +79,18 @@ function Search(props) {
                 <MsDrop addFilters={addFilters}></MsDrop>
                 <input type="submit" value="Submit"></input>
             </form>
+            <ul>
+                {
+                    displayEvents.map((event) => {
+                        return <li key = {event._id}>
+                            <h3>{event.name} - {event.type}, {event.activityLevel}</h3>
+                            <h4>Location: {event.location}</h4>
+                            <h4>Time: {event.time}</h4>
+                            <p>{event.description}</p>
+                        </li>
+                    })
+                }
+            </ul>
         </>
     )
 }
