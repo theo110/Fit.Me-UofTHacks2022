@@ -51,7 +51,6 @@ function Login(props) {
         <div className = "loginWrapper">
             <div className="login">
                 <h1>Log in</h1>
-                <h1 style={{ textAlign: "center" }}>Login Here</h1>
                 {props.accountData ?
                     <Alert onClose={(e) => navigate("/")}>
                         <div className='alert-message'>Already Logged In</div>

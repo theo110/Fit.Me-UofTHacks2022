@@ -30,8 +30,32 @@ $accent-color: #000;
 .flex-wrapper{
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 128px;
 }
 
-.form-wrapper{
-    
+.signupContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
