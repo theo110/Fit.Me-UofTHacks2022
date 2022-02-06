@@ -1,6 +1,7 @@
 import React, { useState, useEffect, } from 'react'
 import SDrop from './SDrop';
-import {useNavigate} from "react-router-dom"
+import Alert from './Alerts';
+import { useNavigate } from "react-router-dom"
 
 
 function CreateEvent(props) {
@@ -64,36 +65,36 @@ function CreateEvent(props) {
         e.preventDefault();
     }
 
-    useEffect(()=>{
-        if(!props.accountData){
-            alert("Please log in first");
-            navigate("/login")
-        }
-    });
-
     return (
+
         <>
             <h1>Enter Details</h1>
-            <form onSubmit={onSubmit}>
-                <label>Name of Activity: </label>
-                <input type="text" name="name" onChange={changeName}></input>
-                <label>Location: </label>
-                <input type="text" name="location" onChange={changeLocation}></input>
-                <label>Activitiy Level
-                    <select onChange={changeActivityLevel}>
-                        <option value=""> Please Select</option>
-                        <option value="light">Light intensity</option>
-                        <option value="moderate">Moderate intensity</option>
-                        <option value="vigorous">Vigorous intensity</option>
-                    </select>
-                </label>
-                <label>Please describe a brief description</label>
-                <textarea name="description" onChange={changeDescription}></textarea>
-                <SDrop addFilters = {addType}></SDrop>
-                <label>Select Time</label>
-                <input type="text" name="time" onChange={changeTime}></input>
-                <input type="submit" value="Submit"></input>
-            </form>
+            {!props.accountData ?
+                <Alert onClose={(e) => navigate("/login")}>
+                    <div className='alert-message'>Please Log In</div>
+                </Alert>
+                :
+                <form onSubmit={onSubmit}>
+                    <label>Name of Activity: </label>
+                    <input type="text" name="name" onChange={changeName}></input>
+                    <label>Location: </label>
+                    <input type="text" name="location" onChange={changeLocation}></input>
+                    <label>Activitiy Level
+                        <select onChange={changeActivityLevel}>
+                            <option value=""> Please Select</option>
+                            <option value="light">Light intensity</option>
+                            <option value="moderate">Moderate intensity</option>
+                            <option value="vigorous">Vigorous intensity</option>
+                        </select>
+                    </label>
+                    <label>Please describe a brief description</label>
+                    <input type="text" name="description" onChange={changeDescription}></input>
+                    <SDrop addFilters={addType}></SDrop>
+                    <label>Select Time</label>
+                    <input type="text" name="time" onChange={changeTime}></input>
+                    <input type="submit" value="Submit"></input>
+                </form>
+            }
         </>
     )
 }
