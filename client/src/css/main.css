@@ -285,6 +285,45 @@ label {
           justify-content: center;
 }
 
+.all-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo-wrapper {
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  margin-left: 1%;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 180px;
+  font-weight: bold;
+}
+
+.logo-wrapper .fit {
+  display: inline-block;
+  color: #74B9FF;
+}
+
+.logo-wrapper .me {
+  display: inline-block;
+  color: #FDCB6E;
+}
+
+.about-wrapper {
+  margin-right: 1%;
+  -webkit-box-flex: 55%;
+      -ms-flex: 55%;
+          flex: 55%;
+}
+
 .eventInput {
   display: -webkit-box;
   display: -ms-flexbox;
