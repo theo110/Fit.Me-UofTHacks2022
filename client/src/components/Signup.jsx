@@ -90,13 +90,15 @@ function SignUp(props) {
                 </Alert>
                 :
                 <form onSubmit={onSubmit}>
-                    <label>Username: </label>
-                    <input type="text" name="username" onChange={changeUser}></input>
-                    <label>Email: </label>
-                    <input type="email" name="email" onChange={changeEmail}></input>
-                    <label>Password: </label>
-                    <input type="password" name="password" onChange={changePassword}></input>
-                    <input type="submit" value="Submit"></input>
+                    <div className='form-container'>
+                        <label>Username: </label>
+                        <input type="text" name="username" onChange={changeUser}></input>
+                        <label>Email: </label>
+                        <input type="email" name="email" onChange={changeEmail}></input>
+                        <label>Password: </label>
+                        <input type="password" name="password" onChange={changePassword}></input>
+                        <input type="submit" value="Submit"></input>
+                    </div>
                 </form>
             }
         </>

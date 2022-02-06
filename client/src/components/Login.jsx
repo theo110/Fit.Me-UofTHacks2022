@@ -82,14 +82,13 @@ function Login(props) {
                     </Alert>
                     :
                     <form onSubmit={onSubmit}>
-                        <label>Username: </label>
-                        <form class="login-form" onSubmit={onSubmit}>
-                            <label className="userpass">Username: </label>
+                        <div className='form-container'>
+                            <label>Username: </label>
                             <input type="text" name="username" onChange={changeUser}></input>
-                            <label className="userpass">Password: </label>
+                            <label>Password: </label>
                             <input type="password" name="password" onChange={changePassword}></input>
                             <input type="submit" className="button" value="Submit"></input>
-                        </form>
+                        </div>
                     </form>
                 }
             </div>
