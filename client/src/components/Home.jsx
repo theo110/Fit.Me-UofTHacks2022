@@ -1,15 +1,16 @@
-import React, {useState, useEffect,} from 'react';
-import ReactDOM from 'react-dom'; 
-import HomePage d
+import React, { useState, useEffect, } from 'react';
+import ReactDOM from 'react-dom';
+import HomePage from "./HomePage";
 // import './Home.css' 
 
-function Home(props){
+function Home(props) {
 
-    return(
+    return (
         <>
-            <h1>Home</h1>
-        </>
-    )
+            <HomePage/>
+            <h1>About Us</h1>
+        </> 
+        )
 }
 
 export default Home;

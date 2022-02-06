@@ -1,9 +1,11 @@
-import React, {useState, useEffect,} from 'react';
+import React from 'react';
 
-function HomePage(props){
+function HomePage() {
     return(
-        <h1>Hello World</h1>;
+        <>
+        <h1>Welcome</h1>;
+        </>
     )
 }
 
-export default Homepage;
+export default HomePage;

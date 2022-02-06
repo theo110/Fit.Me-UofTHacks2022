@@ -4,7 +4,7 @@ const cors = require('cors');
 const dbRoutes = require('./dbRoutes');
 
 // use express
-const app = express();
+// const app = express();
 
 // set up ports
 const port = process.env.PORT || 5000;
