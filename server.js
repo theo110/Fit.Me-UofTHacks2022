@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(dbRoutes);
 
 
-// production condition
+// production condition - serve static files if api middleware does not recognize request
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
