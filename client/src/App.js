@@ -8,6 +8,9 @@ import Navbar from "./components/Navbar";
 import Events from './components/Events';
 import Settings from './components/Settings';
 import CreateEvent from './components/CreateEvent';
+
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import './css/main.css';
 
 
@@ -27,6 +30,11 @@ TODO:
 
 
 function App() {
+  // init animations globally
+  useEffect(() => {
+    Aos.init({});
+  }, []);
+  
   //Accounts data object from database
   const [accountData, setAccountData] = useState(null)
 
