@@ -69,7 +69,7 @@ function Search(props) {
     //Will do when database done.
 
     return (
-        <>
+        <div className = "searchContainer">
             <h1>Search bar and stuff</h1>
             <form onSubmit={onSubmit} className = "searchForm">
                 <label className = 'searchLabel'>Search: </label>
@@ -90,7 +90,7 @@ function Search(props) {
                     })
                 }
             </ul>
-        </>
+        </div>
     )
 }
 
