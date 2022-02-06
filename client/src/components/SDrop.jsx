@@ -45,15 +45,15 @@ const sports = [
 ]
 
 //If anyone knows how to do this without libraries do it
-function MsDrop(props){
+function SDrop(props){
     return (
         /*
             css our own thing 
         */
         <div>
-            <Select options={sports} isMulti onChange = {props.addFilters}></Select>
+            <Select options={sports} onChange = {props.addFilters}></Select>
         </div>
     )
 }
 
-export default MsDrop;
+export default SDrop;

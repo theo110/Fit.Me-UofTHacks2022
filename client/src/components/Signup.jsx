@@ -1,57 +1,36 @@
-import React, {useState, useEffect,} from 'react'
+import React, { useState, useEffect, } from 'react'
+import {useNavigate} from "react-router-dom"
 
 
 
-function SignUp(props){
-    const [username,setUsername] = useState("");
-    const [password,setPassword] = useState("");
-    const [email,setEmail] = useState("");
+function SignUp(props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
     //True is logged in false is not
-    const [loginStatus,toggleLoginStatus] = useState(props.loginStatus);
     const [currAccounts, setCurrAccounts] = useState(null);
 
-    function changeUser(e){
+    const navigate = useNavigate()
+
+    function changeUser(e) {
         setUsername(e.target.value)
     }
 
-    function changeEmail(e){
+    function changeEmail(e) {
         setEmail(e.target.value)
     }
 
-    function changePassword(e){
+    function changePassword(e) {
         setPassword(e.target.value)
     }
 
-    /*
-    const Account = new mongoose.model('Account', new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    info: {
-        location: {
-            type: String,
-            required: true
-        },
-        preferences: []
-    }
-    }));
-    */
-
-    function onSubmit(e){
+    function onSubmit(e) {
         //Store in database
-        for (let account in currAccounts){
-            if (account.username === username){
+        for (let i = 0; i < currAccounts.length; i++) {
+            if (currAccounts[i].username === username) {
                 alert("username taken")
+                break;
                 //Handle username taken.
             }
         }
@@ -60,45 +39,52 @@ function SignUp(props){
             username: username,
             password: password,
             email: email,
+            info: {
+                location: '',
+                preferences: []
+            }
         }
         
         const request = {
             method: "POST",
-            body: JSON.stringify(account)
+            body: JSON.stringify(account),
+            headers: {
+                "Content-Type": "application/json"
+            }
         };
         
         try{
-            fetch("http://localhost:5000/api/newUser",request).then(console.log("zucc"))
+            fetch("/api/newUser",request).then()
         } catch(e){
             console.log(e)
         }
+
         e.preventDefault();
     }
 
     //Fetch accounts data
-    useEffect(()=>{
-        if(loginStatus){
+    useEffect(() => {
+        if (props.accountData) {
             alert("already logged in");
-            //Redirect
+            navigate("/");
         }
         async function fetchAccountData() {
+
             try{
-                const accounts = await fetch("http://localhost:5000/api/userData");
+                const accounts = await fetch("/api/userData");
                 const accountData = await accounts.json();
                 console.log(accountData)
                 return accountData
-            } catch(e){
+            } catch (e) {
                 console.log(e)
             }
         }
         fetchAccountData().then(accounts => {
             setCurrAccounts(accounts);
         })
-    }, []);
+    },[]);
 
-    //bracket supposed to make it only run once.
-
-    return(
+    return (
         <>
             <h1>Sign Up Here</h1>
             <form onSubmit={onSubmit}>

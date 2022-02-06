@@ -4,6 +4,8 @@ const Account = require('./models/accountModel');
 const Event = require('./models/eventModel');
 const router = express.Router();
 
+router.use(express.json());
+
 // routes for writing to database (POST)
 // route for creating a new user
 router.post('/api/newUser', (req, res) => {
@@ -69,5 +71,30 @@ router.get('/api/eventData/:id', (req, res) => {
             res.redirect('/');
         })
 });
+
+// routes for editing data (PUT)
+router.put('/api/updateLocation/:username', (req, res) => {
+    const username = req.params.username;
+    console.log(req.body);
+    // usernames are unique, so we can query by username
+    Account.updateOne({name: username}, {$set: {info: req.body}})
+        .then((result) => console.log(`${username} location updated`))
+        .catch((err) => console.error(err))
+})
+
+// routes for deleting data (DELETE)
+router.delete('/api/purgeEvents', (req, res) => {
+    Event.deleteMany({}, (err) => {
+        if (err) {console.log(err)}
+        console.log("Events purged")
+    })
+})
+
+router.delete('/api/purgeUsers', (req, res) => {
+    Account.deleteMany({}, (err) => {
+        if (err) {console.log(err)}
+        console.log("Accounts purged")
+    })
+})
 
 module.exports = router;

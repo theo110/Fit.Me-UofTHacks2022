@@ -7,7 +7,7 @@ import SignUp from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Events from './components/Events';
 import Settings from './components/Settings';
-//import CreateEvent from './components/CreateEvent';
+import CreateEvent from './components/CreateEvent';
 
 /* 
 TODO:
@@ -25,29 +25,26 @@ TODO:
 
 
 function App() {
-  const [loginStatus, toggleLoginStatus] = useState(false)
-
   //Accounts data object from database
   const [accountData, setAccountData] = useState(null)
 
   function logOn(data) {
-    toggleLoginStatus(true);
     setAccountData(data);
   }
 
 
-  //We can replace loginStatus with checkign if accountData.username is Null. Still here for testing until databae is done.
+  //We can replace loginStatus with checkign if accountData.username is Null. Still here for testing until database is done.
   return (
     <>
     <Navbar></Navbar>
     <Routes>
       <Route exact path="/" element = {<Home />}></Route>
-      <Route path="/login" element = {<Login logOn={logOn} loginStatus = {loginStatus}/>}></Route>
-      <Route path="/signup" element = {<SignUp logOn={logOn} loginStatus = {loginStatus}/>}></Route>
-      <Route path="/events" element = {<Events loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
-      <Route path="/settings" element = {<Settings loginStatus = {loginStatus} accountData = {accountData}/>}></Route>
+      <Route path="/login" element = {<Login logOn={logOn} accountData = {accountData}/>}></Route>
+      <Route path="/signup" element = {<SignUp logOn={logOn} accountData = {accountData}/>}></Route>
+      <Route path="/events" element = {<Events  accountData = {accountData}/>}></Route>
+      <Route path="/settings" element = {<Settings accountData = {accountData}/>}></Route>
+      <Route path="/create" element = {<CreateEvent accountData = {accountData}/>}></Route>
       <Route path="/events" element = {<Events/>}></Route>
-
     </Routes>
     </>
   );
@@ -55,4 +52,3 @@ function App() {
 
 export default App;
 
-//      <Route path="/create" element = {<CreateEvent loginStatus = {loginStatus} accountData = {accountData}/>}></Route>

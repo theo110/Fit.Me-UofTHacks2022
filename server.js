@@ -30,15 +30,6 @@ app.use(cors());
 app.use(express.json());
 app.use(dbRoutes);
 
-// set up api routes
-app.get('/api/data', (req, res) => {
-    const jsonData = [
-        {
-
-        }
-    ];
-    res.json(jsonData);
-})
 
 // production condition
 if (process.env.NODE_ENV === 'production') {
