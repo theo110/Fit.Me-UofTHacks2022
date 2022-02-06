@@ -19,7 +19,7 @@ function Login(props) {
     function onSubmit(e) {
          async function fetchAccountData() {
             try {
-                const accounts = await fetch("http://localhost:5000/api/userData");
+                const accounts = await fetch("/api/userData");
                 const accountData = await accounts.json();
                 console.log(accountData)
                 return accountData
