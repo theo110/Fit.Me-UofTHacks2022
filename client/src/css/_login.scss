@@ -3,6 +3,28 @@ $secondary-color: #74B9FF;
 $tertiary-color: #FDCB6E;
 $accent-color: #000;
 
+body {
+    background: $primary-color;
+    margin: 15px;
+    margin-top: 50px;
+}
+.login-form, 
+.login-form * {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.login-form {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15px $accent-color;
+
+    padding: 15px;
+    background: $secondary-color;
+
+}
 .login {
     width: 100%;
     height: 80px;

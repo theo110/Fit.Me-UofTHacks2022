@@ -1,12 +1,36 @@
-$primary-color: #fff;
-$secondary-color: #74B9FF;
-$tertiary-color: #FDCB6E;
-$accent-color: #000;
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
 
 .searchForm {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
-.searchLabel {
+// .searchLabel {
+
+// }
+
+.searchInput {
+    padding: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif
+}
+
+.searchList {
     display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style-type: none;
+}
+
+.searchItem {
+    display: flex;
+    flex-direction: column;
+    h3, h4, p {
+        margin: 0;
+    }
 }
