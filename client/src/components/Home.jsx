@@ -4,19 +4,22 @@ import ReactDOM from 'react-dom';
 // import './Home.css' 
 import Button from '../Button'
 import logo from '../background.png'
+import HomePage from './HomePage'
 
 function Home(props) {
 
     return (
         <>
             <h1 style={{textAlign: "center"}}>Fit.Me</h1>
-            <h2 style = {{textAlign:"center"}}>Welcome</h2>
-            
-            <img src = {logo} alt = "Logo" height="450px" width="100%" align = "center"/>;
-            <Button/>
-        </> 
-        
-        )
+            <h1 class="searchInput" style={{ textAlign: "center" }}>Welcome</h1>
+
+            <img src={logo} alt="Logo" height="650px" width="100%" />;
+
+            <HomePage />
+
+            <Button />
+        </>
+    )
 }
 
 export default Home;

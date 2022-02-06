@@ -17,32 +17,7 @@ function Login(props) {
     }
 
     function onSubmit(e) {
-        /*
-        const Account = new mongoose.model('Account', new mongoose.Schema({
-        username: {
-            type: String,
-            required: true
-        },
-        password: {
-            type: String,
-            required: true
-        },
-        email: {
-            type: String,
-            required: true
-        },
-        info: {
-            location: {
-                type: String,
-                required: true
-            },
-            preferences: []
-        }
-        }));
-        */
-
-        //Fetch all users please implement it i need it please
-        async function fetchAccountData() {
+         async function fetchAccountData() {
             try {
                 const accounts = await fetch("http://localhost:5000/api/userData");
                 const accountData = await accounts.json();
@@ -63,7 +38,7 @@ function Login(props) {
             }
             if (currUser !== null) {
                 props.logOn(currUser);
-                //Incorrect username password combination
+                navigate("/events")
             } else {
                 setError(true);
             }
@@ -75,21 +50,20 @@ function Login(props) {
     return (
         <>
             <div className="login">
-                <h1>Login Here</h1>
+                <h1 style={{ textAlign: "center" }}>Login Here</h1>
                 {props.accountData ?
                     <Alert onClose={(e) => navigate("/")}>
                         <div className='alert-message'>Already Logged In</div>
                     </Alert>
                     :
                     <form onSubmit={onSubmit}>
-                        <label>Username: </label>
-                        <form class="login-form" onSubmit={onSubmit}>
-                            <label className="userpass">Username: </label>
+                        <div className='form-container'>
+                            <label>Username: </label>
                             <input type="text" name="username" onChange={changeUser}></input>
-                            <label className="userpass">Password: </label>
+                            <label>Password: </label>
                             <input type="password" name="password" onChange={changePassword}></input>
-                            <input type="submit" className="button" value="Submit"></input>
-                        </form>
+                            <input type="submit" className="button" value="Log In"></input>
+                        </div>
                     </form>
                 }
             </div>

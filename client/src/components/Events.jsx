@@ -16,7 +16,6 @@ function Events(props){
 
     return(
         <>
-            <h1>Events</h1>
             <Search></Search>
         </>
     )

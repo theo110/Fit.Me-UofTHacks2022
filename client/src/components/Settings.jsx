@@ -38,20 +38,20 @@ function Settings(props) {
     //and a save button to save to databases
     return (
         <>
-            <h1>Settings</h1>
+            <h1 style={{ textAlign: "center" }}>Settings</h1>
             {!accountData ?
                 <Alert onClose={(e)=>navigate("/login")}>
                     <div className='alert-message'>Please Log In</div>
                 </Alert>
                 :
                 <form onSubmit={updateData}>
-                    <p>Username: {accountData ? accountData.username : "Not logged in"}</p>
+                    <div className='welcome-back'>Welcome back, {accountData ? accountData.username : "Not logged in"}</div>
                     <label htmlFor="location">Location</label>
                     <input name="location" id="location" type="text" onChange={updateLocation}></input>
                     {/* somebody change this later */}
                     <label htmlFor="preferences">Event Preferences</label>
                     <input name="preferences" id="preferences" type="text"></input>
-                    <button type="submit">Edit Data</button>
+                    <input type="submit" value="Save Changes"></input>
                 </form>
             }
         </>

@@ -3,9 +3,11 @@ import React from 'react';
 function HomePage() {
     return(
         <>
-        <h1 style = {{textAlign:"center"}}>About Us</h1>;
 
         <div>
+        <h1 class="searchInput" style={{ textAlign: "center" }}>About Us</h1>;
+
+        <div class="aboutus">
 
         <p>During this long pandemic period, our lifestyles have met 
             massive disruptions. Fitness centers, sports programs, and 
@@ -27,7 +29,7 @@ function HomePage() {
 
         </div>
         </>
-    )
+    );
 }
 
 export default HomePage;
