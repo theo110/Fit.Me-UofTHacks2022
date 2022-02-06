@@ -8,6 +8,7 @@ function Search(props) {
     const [search, setSearch] = useState("");
     const [filters, setFilters] = useState([]);
     const [matchingEvents, setMatchingEvents] = useState([])
+    const [displayEvents, setDisplayEvents] = useState([]);
 
 
     function changeSearch(e) {
@@ -38,8 +39,9 @@ function Search(props) {
             }
         })
 
-        //This is console loggin filtered elements. instead we wanna display them.
-        filteredEvents.forEach(element => console.log(element));
+        // reset search bar then display
+        setDisplayEvents([]);
+        setDisplayEvents([...filteredEvents]);
         e.preventDefault();
     }
 
@@ -53,7 +55,6 @@ function Search(props) {
             try {
                 const events = await fetch("/api/eventData");
                 const eventData = await events.json();
-                console.log(eventData)
                 return eventData
             } catch (e) {
                 console.log(e)
@@ -68,16 +69,28 @@ function Search(props) {
     //Will do when database done.
 
     return (
-        <>
+        <div className = "searchContainer">
             <h1>Search bar and stuff</h1>
-            <form onSubmit={onSubmit}>
-                <label>Search: </label>
-                <input type="text" name="search" onChange={changeSearch}></input>
-                <label>Filter by Sport: </label>
-                <MsDrop addFilters={addFilters}></MsDrop>
+            <form onSubmit={onSubmit} className = "searchForm">
+                <label className = 'searchLabel'>Search: </label>
+                <input type="text" name="search" onChange={changeSearch} className = "searchInput"></input>
+                <label className = 'searchLabel'>Filter by Sport: </label>
+                <MsDrop addFilters={addFilters} className = "searchInput"></MsDrop>
                 <input type="submit" value="Submit"></input>
             </form>
-        </>
+            <ul>
+                {
+                    displayEvents.map((event) => {
+                        return <li key = {event._id}>
+                            <h3>{event.name} - {event.type}, {event.activityLevel}</h3>
+                            <h4>Location: {event.location}</h4>
+                            <h4>Time: {event.time}</h4>
+                            <p>{event.description}</p>
+                        </li>
+                    })
+                }
+            </ul>
+        </div>
     )
 }
 

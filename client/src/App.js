@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Events from './components/Events';
 import Settings from './components/Settings';
 import CreateEvent from './components/CreateEvent';
+import './css/main.css';
+
 
 /* 
 TODO:

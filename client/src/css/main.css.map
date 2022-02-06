@@ -1,8 +1,10 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AEKA,AAAA,WAAW,CAAC;EACR,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CACzB",
     "sources": [
-        "main.scss"
+        "main.scss",
+        "_navbar.scss",
+        "_search.scss"
     ],
     "names": [],
     "file": "main.css"
