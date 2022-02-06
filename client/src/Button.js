@@ -1,14 +1,40 @@
 import React from 'react';
+import Login from './components/Login'
+import { Link } from "react-router-dom"
+
 
 function Button() {
     return (
         <div>
-            <button>Log In</button>
-            <button>Sign Up</button>
-            <button>Events</button>
-            <button>Settings</button>
-            <button>Create Event</button>
-            <button>Find Events</button>
+
+            <Link to="/Login">
+                <button>
+                    Log In
+                </button>
+            </Link>
+
+            <Link to="/Signup">
+                <button>
+                    Sign Up
+                </button>
+            </Link>
+
+            <Link to="/Events">
+                <button>Events</button>
+            </Link>
+
+            <Link to="/Settings">
+                <button>Settings</button>
+            </Link>
+
+            <Link to="/create">
+                <button>Create Event</button>
+            </Link>
+
+            <Link to="/events">
+                <button>Find Events</button>
+            </Link>
+
         </div>
         /*
         <div className="App">
@@ -29,7 +55,7 @@ function Button() {
                 </a>
             </header>
         </div >
-        */ 
+        */
 
     );
 }

@@ -5,12 +5,14 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import Button from './Button'
+import HomePage from './components/HomePage'
 
 ReactDOM.render(
   <BrowserRouter>
   
     <App />
-    <Button/>
+    
+    <HomePage/>
     
   </BrowserRouter>,
   document.getElementById('root')
