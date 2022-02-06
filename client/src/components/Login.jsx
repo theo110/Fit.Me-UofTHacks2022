@@ -89,6 +89,7 @@ function Login(props) {
                             <label className="userpass">Password: </label>
                             <input type="password" name="password" onChange={changePassword}></input>
                             <input type="submit" className="button" value="Submit"></input>
+                            <label className="message"> </label>
                         </form>
                     </form>
                 }
