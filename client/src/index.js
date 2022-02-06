@@ -9,11 +9,7 @@ import HomePage from './components/HomePage'
 
 ReactDOM.render(
   <BrowserRouter>
-  
     <App />
-    
-    
-    
   </BrowserRouter>,
   document.getElementById('root')
 );
