@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Oxygen:regular,bold,italic&subset=latin,latin-ext");
 .nav-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,5 +190,33 @@ label {
 .welcome-back {
   font-size: 30px;
   color: #FDCB6E;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 69px;
+  font-weight: bold;
+}
+
+.logo .fit {
+  display: inline-block;
+  color: #74B9FF;
+}
+
+.logo .me {
+  display: inline-block;
+  color: #FDCB6E;
+}
+
+.flex-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=main.css.map */
