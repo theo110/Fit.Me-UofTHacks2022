@@ -1,5 +1,6 @@
 import React, { useState, useEffect, } from 'react'
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import Alert from './Alerts';
 
 
 
@@ -44,7 +45,7 @@ function SignUp(props) {
                 preferences: []
             }
         }
-        
+
         const request = {
             method: "POST",
             body: JSON.stringify(account),
@@ -52,10 +53,10 @@ function SignUp(props) {
                 "Content-Type": "application/json"
             }
         };
-        
-        try{
-            fetch("/api/newUser",request).then()
-        } catch(e){
+
+        try {
+            fetch("/api/newUser", request).then()
+        } catch (e) {
             console.log(e)
         }
 
@@ -64,13 +65,9 @@ function SignUp(props) {
 
     //Fetch accounts data
     useEffect(() => {
-        if (props.accountData) {
-            alert("already logged in");
-            navigate("/");
-        }
         async function fetchAccountData() {
 
-            try{
+            try {
                 const accounts = await fetch("/api/userData");
                 const accountData = await accounts.json();
                 console.log(accountData)
@@ -82,20 +79,26 @@ function SignUp(props) {
         fetchAccountData().then(accounts => {
             setCurrAccounts(accounts);
         })
-    },[]);
+    }, []);
 
     return (
         <>
             <h1>Sign Up Here</h1>
-            <form onSubmit={onSubmit}>
-                <label>Username: </label>
-                <input type="text" name="username" onChange={changeUser}></input>
-                <label>Email: </label>
-                <input type="email" name="email" onChange={changeEmail}></input>
-                <label>Password: </label>
-                <input type="password" name="password" onChange={changePassword}></input>
-                <input type="submit" value="Submit"></input>
-            </form>
+            {props.accountData ?
+                <Alert onClose={(e) => navigate("/")}>
+                    <div className='alert-message'>Already Logged In</div>
+                </Alert>
+                :
+                <form onSubmit={onSubmit}>
+                    <label>Username: </label>
+                    <input type="text" name="username" onChange={changeUser}></input>
+                    <label>Email: </label>
+                    <input type="email" name="email" onChange={changeEmail}></input>
+                    <label>Password: </label>
+                    <input type="password" name="password" onChange={changePassword}></input>
+                    <input type="submit" value="Submit"></input>
+                </form>
+            }
         </>
     )
 }

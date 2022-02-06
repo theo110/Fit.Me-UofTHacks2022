@@ -8,7 +8,6 @@ import Navbar from "./components/Navbar";
 import Events from './components/Events';
 import Settings from './components/Settings';
 import CreateEvent from './components/CreateEvent';
-
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import './css/main.css';

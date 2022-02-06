@@ -1,0 +1,39 @@
+$primary-color: #fff;
+$secondary-color: #74B9FF;
+$tertiary-color: #FDCB6E;
+$accent-color: #000;
+
+.nav-wrapper{
+    display: flex;
+    align-items: center;
+    background-color: $primary-color;
+    width: 100%;
+    .elements{
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        background-color: $primary-color;
+        box-shadow: 2px 2px 2px 2px #F8F8FF ;
+        .text a{
+            float: right;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px 18px;
+            color: $secondary-color;
+        }
+        .text.active a{
+            color: $tertiary-color;
+        }
+        .text.active a:hover{
+            border-bottom: 4px solid $tertiary-color;
+        }
+        .text a:hover{
+            border-bottom: 4px solid $secondary-color;
+        }
+    }
+}
+
+.active a{
+    color: $tertiary-color;
+}
