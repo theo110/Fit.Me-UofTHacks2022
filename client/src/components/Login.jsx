@@ -1,7 +1,5 @@
 import React, { useState, useEffect, } from 'react'
-import {useNavigate} from "react-router-dom"
-
-
+import {useNavigate} from "react-router-dom";
 
 function Login(props) {
     const [username, setUsername] = useState("");
@@ -82,14 +80,17 @@ function Login(props) {
 
     return (
         <>
+        <div className="login">
             <h1>Login Here</h1>
-            <form onSubmit={onSubmit}>
-                <label>Username: </label>
+            <form class="login-form" onSubmit={onSubmit}>
+                <label className="userpass">Username: </label>
                 <input type="text" name="username" onChange={changeUser}></input>
-                <label>Password: </label>
+                <label className="userpass">Password: </label>
                 <input type="password" name="password" onChange={changePassword}></input>
-                <input type="submit" value="Submit"></input>
+                <input type="submit" className="button" value="Submit"></input>
             </form>
+        </div>
+
         </>
     )
 }
