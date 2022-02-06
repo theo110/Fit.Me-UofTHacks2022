@@ -9,9 +9,10 @@ function Home(props) {
 
     return (
         <>
-            <h1 style = {{textAlign:"center"}}>Welcome</h1>
+            <h1 style={{textAlign: "center"}}>Fit.Me</h1>
+            <h2 style = {{textAlign:"center"}}>Welcome</h2>
             
-            <img src = {logo} alt = "Logo" height="650px" width="100%"/>;
+            <img src = {logo} alt = "Logo" height="450px" width="100%" align = "center"/>;
             <Button/>
         </> 
         
