@@ -97,7 +97,7 @@ function SignUp(props) {
                         <input type="email" name="email" onChange={changeEmail}></input>
                         <label>Password: </label>
                         <input type="password" name="password" onChange={changePassword}></input>
-                        <input type="submit" value="Submit"></input>
+                        <input type="submit" value="Sign Up"></input>
                     </div>
                 </form>
             }
