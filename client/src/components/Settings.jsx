@@ -1,18 +1,12 @@
-import React, {useState, useEffect,} from 'react'
-import {useNavigate} from "react-router-dom"
+import React, { useState, useEffect, } from 'react'
+import { useNavigate } from "react-router-dom"
+import Alert from './Alerts';
 
-function Settings(props){
+function Settings(props) {
     const [accountData, setAccountData] = useState(props.accountData);
     const [loginStatus] = useState(props.loginStatus);
-    const [userLocation, setUserLocation] = useState(accountData? accountData.location : '');
+    const [userLocation, setUserLocation] = useState(accountData ? accountData.location : '');
     const navigate = useNavigate();
-
-    useEffect(()=>{
-        if(!accountData){
-            alert("Please log in first");
-            navigate("/login")
-        }
-    });
 
     const updateLocation = (e) => {
         setUserLocation(e.target.value)
@@ -42,18 +36,22 @@ function Settings(props){
 
     //Get various options such as toggle buttons, form fields and stuff to fill out settings 
     //and a save button to save to databases
-    return(
+    return (
         <>
             <h1>Settings</h1>
-            {!accountData? "Please login first!" : 
-                <form onSubmit = {updateData}>
-                    <p>Username: {accountData? accountData.username : "Not logged in"}</p>
-                    <label htmlFor = "location">Location</label>
-                    <input name = "location" id = "location" type = "text" onChange = {updateLocation}></input>
+            {!accountData ?
+                <Alert onClose={(e)=>navigate("/login")}>
+                    <div className='alert-message'>Please Log In</div>
+                </Alert>
+                :
+                <form onSubmit={updateData}>
+                    <p>Username: {accountData ? accountData.username : "Not logged in"}</p>
+                    <label htmlFor="location">Location</label>
+                    <input name="location" id="location" type="text" onChange={updateLocation}></input>
                     {/* somebody change this later */}
-                    <label htmlFor = "preferences">Event Preferences</label>
-                    <input name = "preferences" id = "preferences" type = "text"></input>
-                    <button type = "submit">Edit Data</button>
+                    <label htmlFor="preferences">Event Preferences</label>
+                    <input name="preferences" id="preferences" type="text"></input>
+                    <button type="submit">Edit Data</button>
                 </form>
             }
         </>

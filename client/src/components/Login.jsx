@@ -1,6 +1,6 @@
 import React, { useState, useEffect, } from 'react'
 import {useNavigate} from "react-router-dom"
-
+import Alert from './Alerts';
 
 
 function Login(props) {
@@ -62,10 +62,9 @@ function Login(props) {
                     break;
                 }
             }
-
             if (currUser !== null) {
                 props.logOn(currUser);
-                navigate("/settings")
+                //Incorrect username password combination
             } else {
                 setError(true);
             }
@@ -73,16 +72,15 @@ function Login(props) {
         e.preventDefault();
     }
 
-    useEffect(() => {
-        if (props.accountData) {
-            alert("already logged in");
-            navigate("/")
-        }
-    },[]);
 
     return (
         <>
             <h1>Login Here</h1>
+            {props.accountData ?
+                <Alert onClose={(e)=>navigate("/")}>
+                    <div className='alert-message'>Already Logged In</div>
+                </Alert>
+                :
             <form onSubmit={onSubmit}>
                 <label>Username: </label>
                 <input type="text" name="username" onChange={changeUser}></input>
@@ -90,6 +88,7 @@ function Login(props) {
                 <input type="password" name="password" onChange={changePassword}></input>
                 <input type="submit" value="Submit"></input>
             </form>
+            }
         </>
     )
 }
