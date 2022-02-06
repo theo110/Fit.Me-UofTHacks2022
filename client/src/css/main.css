@@ -115,6 +115,7 @@ input, select {
 
 input[type=submit] {
   width: 100%;
+  font-size: 15px;
   background-color: #FDCB6E;
   color: #fff;
   padding: 14px 20px;
@@ -130,6 +131,12 @@ input[type=submit]:hover {
 
 label {
   color: #74B9FF;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
 }
 
 .searchContainer {
@@ -156,7 +163,9 @@ label {
 
 .searchInput {
   padding: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+ 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+ sans-serif;
 }
 
 .searchList {
@@ -191,3 +200,9 @@ label {
   color: #FDCB6E;
 }
 /*# sourceMappingURL=main.css.map */
+
+.aboutus {
+  font-size: 20px;
+  text-align: center;
+}
+
