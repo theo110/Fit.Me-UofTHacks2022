@@ -88,7 +88,7 @@ function CreateEvent(props) {
                     </select>
                 </label>
                 <label>Please describe a brief description</label>
-                <input type="text" name="description" onChange={changeDescription}></input>
+                <textarea name="description" onChange={changeDescription}></textarea>
                 <SDrop addFilters = {addType}></SDrop>
                 <label>Select Time</label>
                 <input type="text" name="time" onChange={changeTime}></input>
