@@ -70,7 +70,7 @@ function Search(props) {
 
     return (
         <div className = "searchContainer">
-            <h1>Search for Events</h1>
+            <h1 className = "searchInput" style={{ textAlign: "center" }}>Search for Events</h1>
             <form onSubmit={onSubmit} className = "searchForm">
                 <label className = 'searchLabel'>Search: </label>
                 <input type="text" name="search" onChange={changeSearch} className = "searchInput"></input>
@@ -79,18 +79,16 @@ function Search(props) {
                 <input type="submit" value="Submit" className = "searchInput button"></input>
             </form>
             <ul className = "searchList">
-                {
-                    displayEvents.map((event) => {
-                        return <li key = {event._id} className = "searchItem" data-aos = "fade-left">
-                            <h3>{event.name} - {event.type}, {event.activityLevel}</h3>
-                            <h4>Location: {event.location}</h4>
-                            <h4>Time: {event.time}</h4>
-                            <p>{event.description}</p>
-                        </li>
-                    })
+                {displayEvents.map((event) => {
+                    return <li key = {event._id} className = "searchItem" data-aos = "fade-left">
+                        <h3>{event.name} - {event.type}, {event.activityLevel}</h3>
+                        <h4>Location: {event.location}</h4>
+                        <h4>Time: {event.time}</h4>
+                        <p>{event.description}</p>
+                    </li>})
                 }
             </ul>
-            <p>Didn't find the event you were looking for? Try a different query or make your own event!</p>
+            <p style={{ textAlign: "center" }}>Didn't find the event you were looking for? Try a different query or make your own event!</p>
         </div>
     )
 }

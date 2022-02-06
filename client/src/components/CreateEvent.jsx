@@ -67,8 +67,8 @@ function CreateEvent(props) {
 
     return (
 
-        <>
-            <h1>Enter Details</h1>
+        <div class = "eventInput">
+            <h1 style={{ textAlign: "center" }}>Enter Details</h1>
             {!props.accountData ?
                 <Alert onClose={(e) => navigate("/login")}>
                     <div className='alert-message'>Please Log In</div>
@@ -95,7 +95,7 @@ function CreateEvent(props) {
                     <input type="submit" value="Submit"></input>
                 </form>
             }
-        </>
+        </div>
     )
 }
 

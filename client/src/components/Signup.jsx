@@ -82,11 +82,11 @@ function SignUp(props) {
     }, []);
 
     return (
-        <>
-            <h1>Sign Up Here</h1>
+        <div class = "signupContainer">
+            <h1 style={{ textAlign: "center" }}>Sign Up</h1>
             {props.accountData ?
                 <Alert onClose={(e) => navigate("/")}>
-                    <div className='alert-message'>Already Logged In</div>
+                    <div className='alert-message'>You're already logged in!</div>
                 </Alert>
                 :
                 <>
@@ -115,7 +115,7 @@ function SignUp(props) {
                     </div>
                 </>
             }
-        </>
+        </div>
     )
 }
 

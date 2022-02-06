@@ -48,9 +48,9 @@ function Login(props) {
 
 
     return (
-        <>
+        <div className = "loginWrapper">
             <div className="login">
-                <h1>Login Here</h1>
+                <h1>Log in</h1>
                 {props.accountData ?
                     <Alert onClose={(e) => navigate("/")}>
                         <div className='alert-message'>Already Logged In</div>
@@ -68,7 +68,7 @@ function Login(props) {
                 }
             </div>
 
-        </>
+        </div>
     )
 }
 

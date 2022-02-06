@@ -38,7 +38,7 @@ function Settings(props) {
     //and a save button to save to databases
     return (
         <>
-            <h1>Settings</h1>
+            <h1 style={{ textAlign: "center" }}>Settings</h1>
             {!accountData ?
                 <Alert onClose={(e)=>navigate("/login")}>
                     <div className='alert-message'>Please Log In</div>
