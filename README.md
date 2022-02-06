@@ -1,13 +1,11 @@
-# UofTHacks
-UofTHacks
-Hello this was a branch change!
+# Fit.ME
+UofTHacks 2022 Submission
 
-## API Requests ##
-### POST Requests ### 
-- /api/newUser - creates a new user, see models/accountModel for how to structure GET request
-- /api/newEvent - creates a new event, see models/eventModel for how to structure GET request
+## About ##
+During this long pandemic period, our lifestyles have met massive disruptions. Fitness centers, sports programs, and many physical activities were shut down. We were forced to stay at home. With limited physical activities, our mental and physical health were greatly impacted by this change. Heath problems such as obesity, depression, and anxiety dramatically increased during this time.
 
-### GET Requests
-- /api/userData/(id) - gets a given user's id, ask james for ids lol
-- /api/eventData - gets an array of all the events in the database
-- /api/eventData/(id) - gets a given event's id, ask james for ids again lol
+In order to restore life before the pandemic, we created Fit.Me, an app that allows you to find activity centers and programs near you that satisfy your health goals. We incorporated an extremely fine search system that gives you information about the different sports and fitness facilities that are covid-safe and open for you! Just specify your preferences, find an activity, and become one step closer to maintaining a health lifestyle.
+
+## DEMO ##
+https://glacial-beach-44390.herokuapp.com/
+
